@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Reset base con tema oscuro ────────────────────────────── */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body,
+  #root {
+    @apply bg-g-bg text-white min-h-screen;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar       { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { @apply bg-g-bg; }
+  ::-webkit-scrollbar-thumb { @apply bg-g-border rounded-full; }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+}
+
+/* ── Componentes reutilizables ─────────────────────────────── */
+@layer components {
+
+  /* Botones */
+  .btn-primary {
+    @apply bg-g-accent hover:brightness-110 active:scale-95
+           text-white font-semibold py-2.5 px-6 rounded-lg
+           transition-all duration-200 shadow-neon-red
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-g-card hover:bg-g-border active:scale-95
+           text-white font-semibold py-2.5 px-6 rounded-lg
+           border border-g-border transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-cyan {
+    @apply bg-transparent hover:bg-g-cyan/10 active:scale-95
+           text-g-cyan font-semibold py-2.5 px-6 rounded-lg
+           border border-g-cyan transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Tarjeta base */
+  .card {
+    @apply bg-g-card border border-g-border rounded-xl p-4;
+  }
+
+  /* Inputs */
+  .input-gaming {
+    @apply bg-g-bg border border-g-border rounded-lg px-4 py-2.5
+           text-white placeholder-g-muted
+           focus:outline-none focus:border-g-cyan focus:ring-1 focus:ring-g-cyan
+           w-full transition-all duration-200;
+  }
+
+  /* Label */
+  .label {
+    @apply block text-sm font-medium text-gray-400 mb-1.5;
+  }
+
+  /* Badge de estado */
+  .badge-confirmed  { @apply bg-green-900/50 text-green-400 border border-green-700 text-xs px-2 py-0.5 rounded-full; }
+  .badge-pending    { @apply bg-yellow-900/50 text-yellow-400 border border-yellow-700 text-xs px-2 py-0.5 rounded-full; }
+  .badge-admin      { @apply bg-g-accent/20 text-g-accent border border-g-accent text-xs px-2 py-0.5 rounded-full; }
+
+  /* Título de sección estilo gaming */
+  .section-title {
+    @apply font-display font-bold uppercase tracking-widest text-g-cyan text-sm;
+  }
+}
