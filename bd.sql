@@ -35,7 +35,7 @@
       inscription_fee     DECIMAL(10,2)   NOT NULL DEFAULT 0.00,   -- en Soles
       prize_first_pct     DECIMAL(5,2)    NOT NULL DEFAULT 70.00,  -- % al 1er lugar
       prize_second_pct    DECIMAL(5,2)    NOT NULL DEFAULT 30.00,  -- % al 2do lugar
-      format              ENUM('league','groups_knockout')
+      format              ENUM('league','groups_knockout','league_playoff')
                                           NOT NULL DEFAULT 'league',
       num_groups          TINYINT UNSIGNED DEFAULT NULL,            -- solo para groups_knockout
       status              ENUM('draft','registration','in_progress','finished')
@@ -119,6 +119,7 @@
       phase               ENUM(
                               'league',       -- liga todos contra todos
                               'group_stage',  -- fase de grupos
+                              'playoff',      -- semifinales y final del formato league_playoff
                               'round_of_16',
                               'quarterfinal',
                               'semifinal',
